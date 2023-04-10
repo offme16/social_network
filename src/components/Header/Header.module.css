@@ -1,0 +1,11 @@
+.header {
+  grid-area: h;
+  background-color: #333333;
+  position: relative;
+  width: 100%;
+}
+.logo{
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
