@@ -1,5 +1,11 @@
 .item{
     color:brown;
+    display: flex;
+    align-items: center;
+}
+.postspan{
+    padding-left: 5px;
+    
 }
 .item img{
     width: 50px;

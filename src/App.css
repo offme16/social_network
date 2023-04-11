@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  text-decoration: none;
 }
 :root{
   --radius: 10px;
@@ -25,4 +26,10 @@ body {
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   grid-gap: 10px;
+}
+.app-wrapper__content{ 
+    grid-area: c;
+    background-color: #333333;
+    border-radius:var(--radius);
+  
 }

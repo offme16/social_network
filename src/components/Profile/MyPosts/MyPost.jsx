@@ -9,8 +9,8 @@ const MyPost = () =>{
         <button>Add</button>
       </div>
       <div className={cla.posts}>
-        <Post/>
-        <Post/>
+        <Post message='капец, овечка такая красивая!!' countlike='1600'/>
+        <Post message="ДАааааа!" countlike='500'/>
         <Post/>
         <Post/>
         </div>
