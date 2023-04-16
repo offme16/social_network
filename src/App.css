@@ -30,6 +30,5 @@ body {
 .app-wrapper__content{ 
     grid-area: c;
     background-color: #333333;
-    border-radius:var(--radius);
-  
+    border-radius:var(--radius);  
 }

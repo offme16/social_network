@@ -1,0 +1,25 @@
+.container{
+    padding: 20px 10px 30px;
+    max-width: 550px;
+}
+.content img{
+    max-width: 550px;
+    max-height: 550px;
+    object-fit: cover;
+}
+.news__user{
+    max-width: 510px;
+    height: 40px;
+    display: flex;
+    align-items: start;
+    padding-bottom: 50px;
+}
+.news__user a{
+    color:#373fad;  
+}
+.imgnews__user{
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+    margin-right: 8px;
+}

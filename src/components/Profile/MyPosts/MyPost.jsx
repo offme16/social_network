@@ -3,7 +3,7 @@ import Post from './Post/Post';
 import './Post/Post.module.css';
 const MyPost = () =>{
     return(
-      <div> My post
+      <div className={cla.MYp}> My post
       <div className='New-Post'>
         <textarea>У вас есть что-то новое?</textarea>
         <button>Add</button>
