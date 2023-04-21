@@ -1,24 +1,21 @@
 import { NavLink } from 'react-router-dom';
 import cla from './News.module.css';
+
+const NewsItem = (props) => {
+    return( <div className={cla.content}>
+    <div className={cla.news__user}><img className={cla.imgnews__user} src={props.avauser} alt='n'/><NavLink to='/profile'>{props.username}</NavLink></div>
+    <div className={cla.content__text}>{props.newstext}
+    </div>
+    <img src={props.newsimg} alt='n'/>
+        
+     </div>)
+}
+
 const News = (props) =>{
+    let NewsList = props.state.NewsData.map(n => <NewsItem avauser={n.avauser} username={n.username} newstext={n.newstext} newsimg={n.newsimg}/>)
     return(
         <div className={cla.container}>
-             <div className={cla.content}>
-                <div className={cla.news__user}><img className={cla.imgnews__user} src='https://cdn2.iconfinder.com/data/icons/animal-vivid-volume-2/256/Monkey-256.png' alt='n'/><NavLink to='/profile'>Бубузьяна</NavLink></div>
-                <div className={cla.content__text}>Овеччкаааааа!
-                <p>Домашняя овца (лат. Ovis aries) — парнокопытное млекопитающее из рода баранов, семейства полорогих. 
-                    Это животное уже в глубокой древности было одомашнено человеком, в основном из-за густой шерсти и съедобного мяса.
-                     В настоящее время стриженая овечья шерсть, или руно, используется человеком чаще, чем шерсть любого другого животного. Овечье мясо, 
-                     называемое бараниной, является одним из важнейших продуктов потребления во многих странах мира. Помимо шерсти и мяса, овец разводят для получения овечьего молока, 
-                     которое используется для изготовления сыра, а также кулинарного жира и шкур (овчины). Наконец, овцы используются в научных экспериментах: одним из известнейших представителей
-                      этого вида считается овечка Долли — первое в мире клонированное млекопитающее (в 1996 году).
-В узком смысле под овцами подразумевают самок домашней овцы, тогда как самцов обычно называют баранами. Молодые самки, не достигшие половой зрелости, именуются ярками, а потомство — ягнятами.</p></div>
-                <img src='https://thumbs.dreamstime.com/b/%D0%BC%D0%B0-%D0%B5%D0%BD%D1%8C%D0%BA%D0%B0%D1%8F-%D0%BE%D0%B2%D0%B5%D1%87%D0%BA%D0%B0-%D0%BE%D1%82-%D1%8B%D1%85%D0%B0%D1%8F-%D0%BD%D0%B0-%D1%82%D1%80%D0%B0%D0%B2%D0%B5-43188349.jpg' alt='n'/> </div>
-                <div className={cla.friends}>
-                    <ul>
-
-                    </ul>
-                </div>
+            {NewsList}
         </div>
     );
 }

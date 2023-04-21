@@ -1,12 +1,12 @@
 .header {
   grid-area: h;
   background-color: #333333;
-  position: relative;
   width: 100%;
+  position: relative;
   border-radius: 0 0 10px 10px;
 }
 .logo{
   position: absolute;
   top: 5px;
-  left: 10px;
+  left: 8px;
 }
