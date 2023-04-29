@@ -11,7 +11,7 @@
     max-width: 510px;
     height: 40px;
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     padding-bottom: 50px;
     
 }

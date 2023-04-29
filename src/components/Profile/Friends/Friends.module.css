@@ -1,0 +1,32 @@
+.friends{
+    width: 300px;
+    height: auto;
+    border: solid 1px var(--color);
+    border-radius: var(--radius);
+}
+.asa{
+    height: 0px;
+}
+.friend__list{
+  
+   padding: 10px 10px;  
+}
+.disfri{
+    padding: 5px 0px 5px 10px;
+}
+.PAN{
+    display: inline-block;
+    max-width: 67px;
+    text-align: center;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+.PAN img{
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius);   
+}
+.windwo{
+   
+    display: inline;
+}

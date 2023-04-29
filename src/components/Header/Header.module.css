@@ -10,3 +10,12 @@
   top: 5px;
   left: 8px;
 }
+.re{
+  position: absolute;
+  top: 16px;
+  left: 65px;
+  color:rgba(72, 169, 254, 0.791);
+  font-size: 26px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 900;
+}

@@ -1,21 +1,57 @@
 .dialogs{
     display: grid;
     grid-template-columns: 2fr 10fr;
+    border: solid 1px var(--color);
+    border-radius:var(--radius); 
+    height: 600px;
 }
 .dialogs__item{
+    width: 316px;
     display: flex;
-    justify-content: space-around;
-    gap: 1px;
     flex-direction: column;
+    border-right: solid 1px  var(--color);
+    
 }
 .dialog{
-    width: 100px;
-    height: 50px;
-    display: flex;
-    justify-content: space-around;
- 
+   height: 63px;
+   display: flex;
+   padding: 0 0 0 15px;
+   border-bottom: solid 1px  var(--color);
+   align-items: center;
 }
-
+.user__name{
+    color:aqua;
+    padding-left: 10px;
+   
+}
+.ava__user{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+}
 .messages{
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.messages textarea{
+    padding: 9px 74px 10px 13px;
+    width: 90%;
+    height: 38px;
+    resize: none;
+}
+.onlymes{
+    width: 550px;
+    height: 39px;
+
+    padding: 6px 30px 7px 20px;
+}
+.fortextbut{
+    display: flex;
+    justify-content: center;
+    padding: 8px 10px 12px 6px;
+    gap:5px
+}
+.sendmessages{
+    margin-top: 20px;
 }
