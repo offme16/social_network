@@ -1,3 +1,5 @@
+import { renderEntireTree } from "../render";
+
 let state = {
   ProfilePage: {
     PostData: [
@@ -6,6 +8,7 @@ let state = {
       { id: 2, post: "Pzfa", countlike: "30" },
       { id: 3, post: "yep", countlike: "100" },
     ],
+    newPostText: "gf",
     FriendsData: [
       {
         id: 0,
@@ -85,12 +88,20 @@ let state = {
     ],
   },
 };
-export let addPost = (postMessage) => {
+
+export let addPost = () => {
   let newPost = {
     id: 5,
-    post: postMessage,
+    post: state.ProfilePage.newPostText,
     countlike: 0,
   };
   state.ProfilePage.PostData.push(newPost);
+  state.ProfilePage.newPostText = "";
+  renderEntireTree(state);
+};
+
+export let updateNewsPostText = (newText) => {
+  state.ProfilePage.newPostText = newText;
+  renderEntireTree(state);
 };
 export default state;
