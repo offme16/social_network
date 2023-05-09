@@ -93,23 +93,25 @@ let store = {
   _callsubscride() {
     console.log("r");
   },
-  addPost() {
-    let newPost = {
-      id: 5,
-      post: this._state.ProfilePage.newPostText,
-      countlike: 0,
-    };
-    this._state.ProfilePage.PostData.push(newPost);
-    this._state.ProfilePage.newPostText = "";
-    this._callsubscride(this._state);
-  },
-  updateNewsPostText(newText) {
-    this._state.ProfilePage.newPostText = newText;
-    this._callsubscride(this._state);
-  },
 
   subscribe(observer) {
     this._callsubscride = observer; //обсервер паттерн
+  },
+
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      let newPost = {
+        id: 5,
+        post: this._state.ProfilePage.newPostText,
+        countlike: 0,
+      };
+      this._state.ProfilePage.PostData.push(newPost);
+      this._state.ProfilePage.newPostText = "";
+      this._callsubscride(this._state);
+    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+      this._state.ProfilePage.newPostText = action.newText;
+      this._callsubscride(this._state);
+    }
   },
 };
 

@@ -8,12 +8,14 @@ const MyPost = (props) =>{
   let newpostEl = React.createRef();
 
   let addPost = () =>{
-     props.addPost();
-  }
+     props.dispatch({type: 'ADD-POST'});
+  };
+
   let onPostChange= () => {
     let text = newpostEl.current.value;
-    props.updateNewsPostText(text);
-  }
+    props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText:text});
+  };
+  
      let PostF = props.state.PostData.map(p => <Post message={p.post} countlike={p.countlike}/>)  
     return(
       <div className={cla.flex__column} >
