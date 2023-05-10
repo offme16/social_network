@@ -3,17 +3,21 @@ import Post from './Post/Post';
 import './Post/Post.module.css';
 import React from 'react';
 import Friends from '../Friends/Friends';
+import { addPostactionCreator, updatenewpostCreater } from '../../../redux/state';
+
 
 const MyPost = (props) =>{
+
   let newpostEl = React.createRef();
 
   let addPost = () =>{
-     props.dispatch({type: 'ADD-POST'});
+     props.dispatch(addPostactionCreator());
   };
 
   let onPostChange= () => {
     let text = newpostEl.current.value;
-    props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText:text});
+     let action = (updatenewpostCreater(text));
+     props.dispatch(action);
   };
   
      let PostF = props.state.PostData.map(p => <Post message={p.post} countlike={p.countlike}/>)  
