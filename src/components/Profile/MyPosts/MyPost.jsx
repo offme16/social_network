@@ -3,7 +3,7 @@ import Post from './Post/Post';
 import './Post/Post.module.css';
 import React from 'react';
 import Friends from '../Friends/Friends';
-import { addPostactionCreator, updatenewpostCreater } from '../../../redux/state';
+import { addPostactionCreator, updatenewpostCreater } from '../../../redux/profile-reducer';
 
 
 const MyPost = (props) =>{

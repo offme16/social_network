@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import cla from './Dialogs.module.css';
 import React from 'react';
-import { sendMessCreator, updateNewMesBodyCreater } from '../../redux/state';
+import { sendMessCreator, updateNewMesBodyCreater } from '../../redux/message-reducer';
 
 const DialogItem = (props) =>{
     return  <NavLink to={'/dialods/'+props.id}> <div className={cla.dialog}> <img className={cla.ava__user} src={props.url__ava__user} alt='ph'/><div className={cla.user__name}>{props.name} </div> </div></NavLink>;

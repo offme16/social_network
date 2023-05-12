@@ -27,10 +27,7 @@ const App = (props) => {
                 />
               }
             />
-            <Route
-              path="/news"
-              element={<News state={props.state.NewsPage} />}
-            />
+            <Route path="/news" element={<News store={props.store} />} />
             <Route path="/music" element={<Music />} />
             <Route path="/video" element={<Video />} />
             <Route path="/setting" element={<Setting />} />

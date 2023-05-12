@@ -1,7 +1,7 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST = "UPDATE-NEW-POST-TEXT";
-const UPDATE_NEW_MESS_TEXT = "UPDATE-NEW-MESS-TEXT";
-const SEND_MESS = "SEND_MESS";
+import messagereduce from "./message-reducer";
+import newsreduce from "./news-reducer";
+import profilereduce from "./profile-reducer";
+
 let store = {
   _state: {
     ProfilePage: {
@@ -65,7 +65,7 @@ let store = {
         { id: 0, mes: "HI?WHO?" },
         { id: 1, mes: "ohhh,wtf?!" },
       ],
-      Newmessage: ["c"],
+      Newmessage: [""],
     },
     NewsPage: {
       NewsData: [
@@ -90,6 +90,11 @@ let store = {
             "https://avatars.dzeninfra.ru/get-zen_doc/9367095/pub_640f91104fb6cf7413a8a55a_640f92e32a64080b56781588/scale_1200",
         },
       ],
+      NewNews: [
+        {
+          NewNewsText: [""],
+        },
+      ],
     },
   },
   getState() {
@@ -104,46 +109,11 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 5,
-        post: this._state.ProfilePage.newPostText,
-        countlike: 0,
-      };
-      this._state.ProfilePage.PostData.push(newPost);
-      this._state.ProfilePage.newPostText = "";
-      this._callsubscride(this._state);
-    } else if (action.type === UPDATE_NEW_POST) {
-      this._state.ProfilePage.newPostText = action.newText;
-      this._callsubscride(this._state);
-    } else if (action.type === UPDATE_NEW_MESS_TEXT) {
-      this._state.MessagePage.Newmessage = action.body;
-      this._callsubscride(this._state);
-    } else if (action.type === SEND_MESS) {
-      let body = this._state.MessagePage.Newmessage;
-      this._state.MessagePage.Newmessage = "";
-      this._state.MessagePage.MessageData.push({ id: 2, mes: body });
-      this._callsubscride(this._state);
-    }
+    this._state.ProfilePage = profilereduce(this._state.ProfilePage, action);
+    this._state.MessagePage = messagereduce(this._state.MessagePage, action);
+    this._state.NewsPage = newsreduce(this._state.NewsPage, action);
+    this._callsubscride(this._state);
   },
 };
-
-export const addPostactionCreator = () => ({
-  type: ADD_POST,
-});
-
-export const updatenewpostCreater = (text) => ({
-  type: UPDATE_NEW_POST,
-  newText: text,
-});
-
-export const sendMessCreator = () => ({
-  type: SEND_MESS,
-});
-
-export const updateNewMesBodyCreater = (body) => ({
-  type: UPDATE_NEW_MESS_TEXT,
-  body: body,
-});
 
 export default store;

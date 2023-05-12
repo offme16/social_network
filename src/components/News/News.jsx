@@ -12,7 +12,8 @@ const NewsItem = (props) => {
 }
 
 const News = (props) =>{
-    let NewsList = props.state.NewsData.map(n => <NewsItem avauser={n.avauser} username={n.username} newstext={n.newstext} newsimg={n.newsimg}/>)
+    let state = props.store.getState().NewsPage;
+    let NewsList = state.NewsData.map(n => <NewsItem avauser={n.avauser} username={n.username} newstext={n.newstext} newsimg={n.newsimg}/>)
     return(
         <div className={cla.container}>
             {NewsList}
