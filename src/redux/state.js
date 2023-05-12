@@ -1,5 +1,7 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST = "UPDATE-NEW-POST-TEXT";
+const UPDATE_NEW_MESS_TEXT = "UPDATE-NEW-MESS-TEXT";
+const SEND_MESS = "SEND_MESS";
 let store = {
   _state: {
     ProfilePage: {
@@ -9,7 +11,7 @@ let store = {
         { id: 2, post: "Pzfa", countlike: "30" },
         { id: 3, post: "yep", countlike: "100" },
       ],
-      newPostText: "",
+      newPostText: [""],
       FriendsData: [
         {
           id: 0,
@@ -63,6 +65,7 @@ let store = {
         { id: 0, mes: "HI?WHO?" },
         { id: 1, mes: "ohhh,wtf?!" },
       ],
+      Newmessage: ["c"],
     },
     NewsPage: {
       NewsData: [
@@ -101,7 +104,7 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === "ADD-POST") {
+    if (action.type === ADD_POST) {
       let newPost = {
         id: 5,
         post: this._state.ProfilePage.newPostText,
@@ -110,8 +113,16 @@ let store = {
       this._state.ProfilePage.PostData.push(newPost);
       this._state.ProfilePage.newPostText = "";
       this._callsubscride(this._state);
-    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+    } else if (action.type === UPDATE_NEW_POST) {
       this._state.ProfilePage.newPostText = action.newText;
+      this._callsubscride(this._state);
+    } else if (action.type === UPDATE_NEW_MESS_TEXT) {
+      this._state.MessagePage.Newmessage = action.body;
+      this._callsubscride(this._state);
+    } else if (action.type === SEND_MESS) {
+      let body = this._state.MessagePage.Newmessage;
+      this._state.MessagePage.Newmessage = "";
+      this._state.MessagePage.MessageData.push({ id: 2, mes: body });
       this._callsubscride(this._state);
     }
   },
@@ -124,6 +135,15 @@ export const addPostactionCreator = () => ({
 export const updatenewpostCreater = (text) => ({
   type: UPDATE_NEW_POST,
   newText: text,
+});
+
+export const sendMessCreator = () => ({
+  type: SEND_MESS,
+});
+
+export const updateNewMesBodyCreater = (body) => ({
+  type: UPDATE_NEW_MESS_TEXT,
+  body: body,
 });
 
 export default store;

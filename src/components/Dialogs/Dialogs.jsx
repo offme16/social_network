@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import cla from './Dialogs.module.css';
 import React from 'react';
+import { sendMessCreator, updateNewMesBodyCreater } from '../../redux/state';
+
 const DialogItem = (props) =>{
     return  <NavLink to={'/dialods/'+props.id}> <div className={cla.dialog}> <img className={cla.ava__user} src={props.url__ava__user} alt='ph'/><div className={cla.user__name}>{props.name} </div> </div></NavLink>;
  }
@@ -10,12 +12,20 @@ const DialogItem = (props) =>{
  }
 
 const Dialogs =(props) =>{
-    let Userslist = props.state.UsersData.map(u => <DialogItem name={u.name} id={u.id} url__ava__user={u.url__ava__user} /> )
-    let MesUser = props.state.MessageData.map(m => <MessageUser mes={m.mes}/>)
+
+    let state = props.store.getState().MessagePage;
+
+    let Userslist = state.UsersData.map(u => <DialogItem name={u.name} id={u.id} url__ava__user={u.url__ava__user} /> )
+    let MesUser = state.MessageData.map(m => <MessageUser mes={m.mes}/>)
     let sendmessagesEl = React.createRef();
-    let sendMess = () =>{
-        let messages__text = sendmessagesEl.current.value; 
-        alert(messages__text);
+    let Newmessage = state.Newmessage;
+
+    let sendMessclick = () =>{
+        props.store.dispatch(sendMessCreator());
+    }
+    let onSendMes = (event) =>{
+        let body= event.target.value;
+        props.store.dispatch(updateNewMesBodyCreater(body));
     }
     return(
         <div className={cla.dialogs}>
@@ -24,13 +34,14 @@ const Dialogs =(props) =>{
             </div> 
                 <div className={cla.messages}>
                     <div className={cla.onlymes}>
-                        {MesUser}
+                       {MesUser}
                     </div>
                     <div className={cla.sendmessages}> 
                     <hr></hr>
                     <div className={cla.fortextbut}>
-                    <textarea className={cla.writetxt} ref={sendmessagesEl} placeholder='Write a message..'></textarea>
-                    <button onClick={sendMess}> send</button>
+                    <textarea className={cla.writetxt} ref={sendmessagesEl}
+                     value={Newmessage} onChange={onSendMes} placeholder='Write a message..'></textarea>
+                    <button onClick={sendMessclick}>Send</button>
                 </div>
             </div>  
         </div>    
