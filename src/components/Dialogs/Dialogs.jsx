@@ -15,8 +15,9 @@ const Dialogs =(props) =>{
 
     let state = props.store.getState().MessagePage;
 
+    let MesUser = state. MessageData.map(m => <MessageUser mes={m.mes}/>)
     let Userslist = state.UsersData.map(u => <DialogItem name={u.name} id={u.id} url__ava__user={u.url__ava__user} /> )
-    let MesUser = state.MessageData.map(m => <MessageUser mes={m.mes}/>)
+
     let sendmessagesEl = React.createRef();
     let Newmessage = state.Newmessage;
 
