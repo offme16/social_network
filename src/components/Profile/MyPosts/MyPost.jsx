@@ -3,31 +3,31 @@ import Post from './Post/Post';
 import './Post/Post.module.css';
 import React from 'react';
 import Friends from '../Friends/Friends';
-import { addPostactionCreator, updatenewpostCreater } from '../../../redux/profile-reducer';
+
 
 
 const MyPost = (props) =>{
 
   let newpostEl = React.createRef();
 
-  let addPost = () =>{
-     props.dispatch(addPostactionCreator());
+  let onaddPost = () =>{
+     props.addPost()
   };
 
   let onPostChange= () => {
     let text = newpostEl.current.value;
-     let action = (updatenewpostCreater(text));
-     props.dispatch(action);
+     props.raki(text);
   };
   
-     let PostF = props.state.PostData.map(p => <Post message={p.post} countlike={p.countlike}/>)  
+  
+     let PostF = props.post.map(p => <Post message={p.post} countlike={p.countlike}/>)  
     return(
       <div className={cla.flex__column} >
         <div className={cla.MYp}> My post
          <div className={cla.New__Post}>
           <textarea onChange={onPostChange} value={props.newPostText} ref={newpostEl} placeholder='У вас есть что-то новое?'/>
           <div className={cla.forbut}>
-          <button onClick={addPost}>Publish</button>
+          <button onClick={onaddPost}>Publish</button>
           </div>
          </div>
           <div className={cla.posts}>
@@ -35,7 +35,7 @@ const MyPost = (props) =>{
           </div>
        </div>
        <div className={cla.Friend__list}>
-          <Friends state={props.state}/>
+          <Friends st={props.frlist}/>
           </div>
       </div>
     );

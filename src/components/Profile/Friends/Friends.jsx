@@ -13,7 +13,7 @@ const List = (props) =>{
 }
 
 const Friends = (props) => {
-    let NewList= props.state.FriendsData.map(k => <List id={k.id} url__ava__user={k.url__ava__user} name={k.name} />)
+    let NewList= props.st.map(k => <List id={k.id} url__ava__user={k.url__ava__user} name={k.name} />)
     return(
         <div className={cla.asa}>
         <div className={cla.friends}>
