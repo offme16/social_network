@@ -24,11 +24,7 @@ let initialState = {
         "https://avatars.dzeninfra.ru/get-zen_doc/9367095/pub_640f91104fb6cf7413a8a55a_640f92e32a64080b56781588/scale_1200",
     },
   ],
-  NewNews: [
-    {
-      NewNewsText: [""],
-    },
-  ],
+  NewNewsText: "",
 };
 
 const newsreduce = (state = initialState, action) => {

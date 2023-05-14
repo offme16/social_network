@@ -3,11 +3,11 @@ import Header from "./components/Header/Header";
 import Navi from "./components/Nav/Navi";
 import Profile from "./components/Profile/Profile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Video from "./components/Video/Video";
 import Setting from "./components/Setting/Setting";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import NewsContainer from "./components/News/NewsContainer";
 
 const App = (props) => {
   return (
@@ -22,7 +22,10 @@ const App = (props) => {
               element={<DialogsContainer store={props.store} />}
             />
             <Route path="/profile" element={<Profile store={props.store} />} />
-            <Route path="/news" element={<News store={props.store} />} />
+            <Route
+              path="/news"
+              element={<NewsContainer store={props.store} />}
+            />
             <Route path="/music" element={<Music />} />
             <Route path="/video" element={<Video />} />
             <Route path="/setting" element={<Setting />} />
