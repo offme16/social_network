@@ -40,7 +40,7 @@ const profilereduce = (state = initialState, action) => {
         post: state.newPostText,
         countlike: 0,
       };
-      state.PostData.push(newPost);
+      state.PostData.unshift(newPost);
       state.newPostText = "";
       return state;
 

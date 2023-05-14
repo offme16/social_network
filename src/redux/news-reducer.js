@@ -43,7 +43,7 @@ const newsreduce = (state = initialState, action) => {
         newstext: state.NewNewsText,
         newsimg: "",
       };
-      state.NewsData.push(NewNews);
+      state.NewsData.unshift(NewNews);
       state.NewNewsText = "";
       return state;
     case ADD_NEWS_TEXT:

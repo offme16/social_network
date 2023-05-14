@@ -19,8 +19,8 @@ const MyPost = (props) =>{
      props.raki(text);
   };
   
-  
      let PostF = props.post.map(p => <Post message={p.post} countlike={p.countlike}/>)  
+
     return(
       <div className={cla.flex__column} >
         <div className={cla.MYp}> My post

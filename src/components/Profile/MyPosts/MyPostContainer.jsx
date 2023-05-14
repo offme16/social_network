@@ -2,6 +2,7 @@ import { addPostactionCreator, updatenewpostCreater } from '../../../redux/profi
 import MyPost from './MyPost';
 
 const MyPostContainer = (props) =>{
+
 let state=props.store.getState().ProfilePage;
 
     let addPost = () =>{
