@@ -1,8 +1,9 @@
-import StoreContext from '../../../StoreContext';
 import { addPostactionCreator, updatenewpostCreater } from '../../../redux/profile-reducer';
 import MyPost from './MyPost';
+import { connect } from 'react-redux'; 
 
-const MyPostContainer = () =>{
+
+ /*const MyPostContainer = () =>{
 return <StoreContext.Consumer>
    {
    (store) =>{
@@ -26,5 +27,27 @@ return <StoreContext.Consumer>
    }</StoreContext.Consumer>
 
     
+}*/
+let mapStateToProps=(state)=>{
+   return{
+      post: state.ProfilePage.PostData,
+      newPostText: state.ProfilePage.newPostText,
+      frlist: state.ProfilePage.FriendsData,
+   }
 }
+let mapDispatchToProps=(dispatch)=>{
+   return{
+      addPost:()=>{
+         dispatch(addPostactionCreator());
+      },
+      raki:(text)=>{
+         let action = (updatenewpostCreater(text));
+         dispatch(action);
+      }
+   }
+}
+
+
+const MyPostContainer = connect(mapStateToProps,mapDispatchToProps)(MyPost)
+
 export default MyPostContainer;
