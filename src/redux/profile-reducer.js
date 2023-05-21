@@ -34,19 +34,22 @@ let initialState = {
 
 const profilereduce = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_POST:
+    case ADD_POST: {
       let newPost = {
         id: 5,
         post: state.newPostText,
         countlike: 0,
       };
-      state.PostData.unshift(newPost);
-      state.newPostText = "";
-      return state;
-
+      let stateCopy = { ...state };
+      stateCopy.PostData = [...state.PostData];
+      stateCopy.PostData.unshift(newPost);
+      stateCopy.newPostText = "";
+      return stateCopy;
+    }
     case UPDATE_NEW_POST:
-      state.newPostText = action.newText;
-      return state;
+      let stateCopy = { ...state };
+      stateCopy.newPostText = action.newText;
+      return stateCopy;
     default:
       return state;
   }
