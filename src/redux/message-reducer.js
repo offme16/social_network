@@ -38,13 +38,18 @@ let initialState = {
 const messagereduce = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_NEW_MESS_TEXT:
-      state.Newmessage = action.body;
-      return state;
+      return {
+        ...state,
+        Newmessage: action.body,
+      };
+
     case SEND_MESS:
       let body = state.Newmessage;
-      state.Newmessage = "";
-      state.MessageData.push({ id: 2, mes: body });
-      return state;
+      return {
+        ...state,
+        Newmessage: "",
+        MessageData: [...state.MessageData, { id: 2, mes: body }],
+      };
     default:
       return state;
   }

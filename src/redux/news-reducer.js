@@ -39,12 +39,16 @@ const newsreduce = (state = initialState, action) => {
         newstext: state.NewNewsText,
         newsimg: "",
       };
-      state.NewsData.unshift(NewNews);
-      state.NewNewsText = "";
-      return state;
+      return {
+        ...state,
+        NewsData: [NewNews, ...state.NewsData],
+        NewNewsText: "",
+      };
     case ADD_NEWS_TEXT:
-      state.NewNewsText = action.NewTextNews;
-      return state;
+      return {
+        ...state,
+        NewNewsText: action.NewTextNews,
+      };
     default:
       return state;
   }
