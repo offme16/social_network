@@ -7,8 +7,7 @@ const NewsItem = (props) => {
     <div className={cla.news__user}><img className={cla.imgnews__user} src={props.avauser} alt='n'/><NavLink to='/profile'>{props.username}</NavLink></div>
     <div className={cla.content__text}>{props.newstext}
     </div>
-    <img src={props.newsimg} alt='n'/>
-        
+    <img src={props.newsimg} alt='n'/>    
      </div>)
 }
 

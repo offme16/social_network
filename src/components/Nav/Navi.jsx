@@ -5,6 +5,7 @@ const Navi = () =>{
       <nav className={cla.nav}>
       <div className={cla.item}><NavLink to='/profile'>Profile</NavLink></div>
       <div><NavLink to='/dialods'>Messages</NavLink></div>
+      <div><NavLink to='/people'>People</NavLink></div>
       <div><NavLink to='/news'>News</NavLink></div>
       <div><NavLink to='/music'>Music</NavLink></div>
       <div><NavLink to='/video'>Video</NavLink></div>

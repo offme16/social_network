@@ -8,7 +8,7 @@ import Video from "./components/Video/Video";
 import Setting from "./components/Setting/Setting";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import NewsContainer from "./components/News/NewsContainer";
-
+import PeopleContainer from "./components/People/PeopleContainer";
 const App = (props) => {
   return (
     <BrowserRouter>
@@ -17,18 +17,10 @@ const App = (props) => {
         <Navi />
         <div className="app-wrapper__content">
           <Routes>
-            <Route
-              path="/dialods"
-              element={<DialogsContainer /*store={props.store}*/ />}
-            />
-            <Route
-              path="/profile"
-              element={<Profile /*store={props.store}*/ />}
-            />
-            <Route
-              path="/news"
-              element={<NewsContainer /*store={props.store}*/ />}
-            />
+            <Route path="/dialods" element={<DialogsContainer />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/news" element={<NewsContainer />} />
+            <Route path="/people" element={<PeopleContainer />} />
             <Route path="/music" element={<Music />} />
             <Route path="/video" element={<Video />} />
             <Route path="/setting" element={<Setting />} />
