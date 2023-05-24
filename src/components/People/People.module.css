@@ -4,15 +4,16 @@
 }
 .block{
     width: 100%;
-    height: 70px;
+    height: 80px;
     border: solid 1px var(--color);
-    display:flex ;
+    display:flex;
 }
-.ava__name{
+.ava__desp{
+    display: flex;
     width: 80%;
 }
 .user__photo img{
-    width: 64px;
-    height: 64px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
 }
