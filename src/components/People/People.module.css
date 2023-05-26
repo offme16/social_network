@@ -20,3 +20,6 @@
 .user__photo{
     padding: 5px 5px;
 }
+.selectedPage{
+    text-decoration: underline;
+}
