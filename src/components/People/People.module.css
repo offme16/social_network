@@ -13,7 +13,10 @@
     width: 80%;
 }
 .user__photo img{
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
+}
+.user__photo{
+    padding: 5px 5px;
 }
