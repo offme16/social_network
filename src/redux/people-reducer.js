@@ -38,7 +38,7 @@ const peoplereduce = (state = initialState, action) => {
     case SET_CURRENT_PAGE:
       return { ...state, currentPage: action.currentPage };
     case SET_TOTAL_COUNT:
-      return { ...state, totalusersCount: action.count };
+      return { ...state, totalusersсount: action.count };
     default:
       return state;
   }
