@@ -8,7 +8,6 @@ let People = (props) =>{
         for(let i=1;i<=pageCount;i++){
             pages.push(i);
         }
-debugger
         return  <div className={cla.container}>
             <div>
                 {pages.map(p=>{
