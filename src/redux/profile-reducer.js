@@ -57,11 +57,11 @@ const profilereduce = (state = initialState, action) => {
   }
 };
 
-export const addPostactionCreator = () => ({
+export const addPost = () => ({
   type: ADD_POST,
 });
 
-export const updatenewpostCreater = (text) => ({
+export const raki = (text) => ({
   type: UPDATE_NEW_POST,
   newText: text,
 });

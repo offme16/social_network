@@ -54,11 +54,11 @@ const newsreduce = (state = initialState, action) => {
   }
 };
 
-export const addNewsactionCreator = () => ({
+export const PostNews = () => ({
   type: ADD_NEWS,
 });
 
-export const updateNewNewsCreator = (Text) => ({
+export const PostNewsText = (Text) => ({
   type: ADD_NEWS_TEXT,
   NewTextNews: Text,
 });

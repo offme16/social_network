@@ -54,11 +54,11 @@ const messagereduce = (state = initialState, action) => {
       return state;
   }
 };
-export const sendMessCreator = () => ({
+export const sendMessclick = () => ({
   type: SEND_MESS,
 });
 
-export const updateNewMesBodyCreater = (body) => ({
+export const SendMes = (body) => ({
   type: UPDATE_NEW_MESS_TEXT,
   body: body,
 });

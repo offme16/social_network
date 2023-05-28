@@ -1,4 +1,4 @@
-import { sendMessCreator, updateNewMesBodyCreater } from '../../redux/message-reducer';
+import { sendMessclick,  SendMes } from '../../redux/message-reducer';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
 
@@ -9,7 +9,7 @@ let mapStateToProps = (state) =>{
         Newmessage:state.MessagePage.Newmessage,
     }
 }
-let mapDispathToProps = (dispatch) =>{
+/*let mapDispathToProps = (dispatch) =>{
     return {
         sendMessclick: () =>{
             dispatch(sendMessCreator());
@@ -18,8 +18,8 @@ let mapDispathToProps = (dispatch) =>{
             dispatch(updateNewMesBodyCreater(body));
         }
     }
-}
+}*/
 
-const DialogsContainer = connect(mapStateToProps,mapDispathToProps)(Dialogs);
+const DialogsContainer = connect(mapStateToProps,{ sendMessclick,  SendMes })(Dialogs);
 
 export default DialogsContainer;
