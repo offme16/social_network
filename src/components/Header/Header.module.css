@@ -19,3 +19,7 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: 900;
 }
+.login__block{
+  float: right;
+  color: aqua;
+}
