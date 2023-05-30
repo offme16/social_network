@@ -1,7 +1,7 @@
 const SET_USER_DATA = "SET_USER_DATA";
 
 let initialState = {
-  userId: null,
+  id: null,
   email: null,
   login: null,
   isAuth: false,
@@ -21,9 +21,9 @@ const authreduce = (state = initialState, action) => {
   }
 };
 
-export const setUserData = (userId, email, login) => ({
+export const setUserData = (id, login, email) => ({
   type: SET_USER_DATA,
-  data: { userId, email, login },
+  data: { id, login, email },
 });
 
 export default authreduce;

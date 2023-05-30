@@ -11,5 +11,6 @@ let reducers = combineReducers({
   PeoplePage: peoplereduce,
   auth: authreduce,
 });
+
 let store = createStore(reducers);
 export default store;
