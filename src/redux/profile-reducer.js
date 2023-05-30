@@ -1,5 +1,6 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST = "UPDATE-NEW-POST-TEXT";
+const SET_USERS_PROFILE = "SET-USERS-PROFILE";
 
 let initialState = {
   PostData: [
@@ -30,6 +31,7 @@ let initialState = {
         "https://cdn4.iconfinder.com/data/icons/people-avatar-filled-outline/64/girl_female_young_people_woman_teenager_avatar-256.png",
     },
   ],
+  profile: null,
 };
 
 const profilereduce = (state = initialState, action) => {
@@ -46,16 +48,25 @@ const profilereduce = (state = initialState, action) => {
         newPostText: "",
       };
     }
-
     case UPDATE_NEW_POST:
       return {
         ...state,
         newPostText: action.newText,
       };
+    case SET_USERS_PROFILE:
+      return {
+        ...state,
+        profile: action.profile,
+      };
     default:
       return state;
   }
 };
+
+export const SetUserProfile = (profile) => ({
+  type: SET_USERS_PROFILE,
+  profile,
+});
 
 export const addPost = () => ({
   type: ADD_POST,

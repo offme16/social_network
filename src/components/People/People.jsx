@@ -1,6 +1,7 @@
 import cla from './People.module.css';
 import React from 'react';
 import userPgoto from '../../asses/images/usersimg.jpg';
+import { NavLink } from 'react-router-dom';
 
 let People = (props) =>{
     let pageCount =  Math.ceil(props.totalusersCount / props.pageSize);
@@ -20,9 +21,10 @@ let People = (props) =>{
             props.peoplelist.map(u=><div className={cla.block} key={u.id}>
                 
                 <div className={cla.ava__desp}>
+                     <NavLink to={'/profile/'+u.id}>
                     <div className={cla.user__photo}>
                     <img  src={u.photos.small != null ? u.photos.small: userPgoto} alt='f' />
-                    </div>
+                    </div>  </NavLink>
                     <div className={cla.name__status}>
                 <div>{u.name}</div>
                 <span>{"u.location.sity"} , {"u.location.country"}</span>

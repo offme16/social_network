@@ -51,28 +51,6 @@ let mapStateToProps = (state) =>{
     }
 }
 
-/*let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userid) => {
-            dispatch(followAC(userid));
-        },
-        unfollow: (userid) => {
-            dispatch(unfollowAC(userid));
-        },
-        setusers: (users) => {
-            dispatch(setusersAC(users));
-        }, 
-        setCurrentPage:(currentNum) =>{
-            dispatch(setcurrentAC(currentNum));
-        },
-        setTotalUsersCount:(totalCount) =>{
-            dispatch(settotalAC(totalCount));
-        },
-        toggleIsFetching:(isFetching) =>{
-            dispatch(toggleIsFetchingAC(isFetching));
-        }
-    }
-}*/
 
 export default PeopleContainer = connect(mapStateToProps, { follow, unfollow, setusers, setCurrentPage, setTotalUsersCount, toggleIsFetching
 })(PeopleContainer);
