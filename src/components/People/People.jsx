@@ -2,7 +2,7 @@ import cla from './People.module.css';
 import React from 'react';
 import userPgoto from '../../asses/images/usersimg.jpg';
 import { NavLink } from 'react-router-dom';
-
+import axios from 'axios';
 let People = (props) =>{
     let pageCount =  Math.ceil(props.totalusersCount / props.pageSize);
         let pages = [];
@@ -31,8 +31,18 @@ let People = (props) =>{
                 </div>
                 </div> 
                 <div>
-                   <div>{u.followed ? <button onClick={()=>{props.unfollow(u.id)}}>UNFOLLOW</button>
-                                    : <button onClick={()=>{props.follow(u.id)}}>FOLLOW</button>}</div>             
+                   <div>{u.followed ? <button onClick={()=>{axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{withCredentials:true, headers:{"API-KEY":"1e301298-249e-4e7f-953e-dd11443a2b32"}})
+                 .then(response =>{
+                     if(response.data.resultCode===0){
+                        props.unfollow(u.id);
+                     }
+            });}}>UNFOLLOW</button>
+                                    : <button onClick={()=>{axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{},{withCredentials:true, headers:{"API-KEY":"1e301298-249e-4e7f-953e-dd11443a2b32"}})
+                                    .then(response =>{
+                                        if(response.data.resultCode===0){
+                                           props.follow(u.id);
+                                        }
+                               });}}>FOLLOW</button>}</div>             
                 </div>
             </div>)
         }
