@@ -1,9 +1,10 @@
-import { combineReducers, legacy_createStore as createStore } from "redux";
+import { applyMiddleware, combineReducers, legacy_createStore as createStore } from "redux";
 import profilereduce from "./profile-reducer";
 import newsreduce from "./news-reducer";
 import messagereduce from "./message-reducer";
 import peoplereduce from "./people-reducer";
 import authreduce from "./auth-reducer";
+import thunkMiddleware from "redux-thunk";
 let reducers = combineReducers({
   ProfilePage: profilereduce,
   NewsPage: newsreduce,
@@ -12,5 +13,5 @@ let reducers = combineReducers({
   auth: authreduce,
 });
 
-let store = createStore(reducers);
+let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 export default store;
