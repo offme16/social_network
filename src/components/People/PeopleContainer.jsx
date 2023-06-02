@@ -4,6 +4,7 @@ import React from 'react';
 import People from './People';
 import Preloader from '../common/Preloader'
 import { Navigate } from 'react-router-dom';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 
 class PeopleContainer extends React.Component {
@@ -33,6 +34,8 @@ class PeopleContainer extends React.Component {
     }
 };
 
+let AuthRedirectComponent= withAuthRedirect(PeopleContainer);
+
 let mapStateToProps = (state) => {
     return {
         peoplelist: state.PeoplePage.PeopleData,
@@ -41,12 +44,11 @@ let mapStateToProps = (state) => {
         currentPage: state.PeoplePage.currentPage,
         isFetching: state.PeoplePage.isFetching,
         followingProgress: state.PeoplePage.followingProgress,
-        isAuth: state.auth.isAuth,
     }
 }
 
 
 export default PeopleContainer = connect(mapStateToProps, {
     follow, unfollow, setCurrentPage, toggleFollowProgress, getUsers
-})(PeopleContainer);
+})(AuthRedirectComponent);
 
