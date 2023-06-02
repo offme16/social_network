@@ -1,3 +1,5 @@
+import { authApi } from "../api/api";
+
 const SET_USER_DATA = "SET_USER_DATA";
 
 let initialState = {
@@ -25,5 +27,12 @@ export const setUserData = (id, login, email) => ({
   type: SET_USER_DATA,
   data: { id, login, email },
 });
+
+export const getUserData = () => (dispatch) => {
+  authApi.getAuthMe().then((response) => {
+    let { id, login, email } = response.data.data;
+    dispatch(setUserData(id, login, email));
+  });
+};
 
 export default authreduce;
