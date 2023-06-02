@@ -3,6 +3,7 @@ import { follow, unfollow, setCurrentPage, toggleFollowProgress, getUsers } from
 import React from 'react';
 import People from './People';
 import Preloader from '../common/Preloader'
+import { Navigate } from 'react-router-dom';
 
 
 class PeopleContainer extends React.Component {
@@ -15,7 +16,10 @@ class PeopleContainer extends React.Component {
 
     }
     render() {
-        return <>
+        if(!this.props.isAuth){
+            return <Navigate to={'/login'}/>
+        }
+        return<>
             {this.props.isFetching ? <Preloader /> : null}
             <People totalusersCount={this.props.totalusersCount}
                 pageSize={this.props.pageSize}
@@ -37,6 +41,7 @@ let mapStateToProps = (state) => {
         currentPage: state.PeoplePage.currentPage,
         isFetching: state.PeoplePage.isFetching,
         followingProgress: state.PeoplePage.followingProgress,
+        isAuth: state.auth.isAuth,
     }
 }
 

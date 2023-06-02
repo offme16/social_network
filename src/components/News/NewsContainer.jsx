@@ -6,19 +6,10 @@ let mapStateToProps = (state) =>{
     return{
         newsdata: state.NewsPage.NewsData,
         NewNewsText: state.NewsPage.NewNewsText,
+        isAuth: state.auth.isAuth,
     }
 };
 
-/*let mapDispatchToProps = (dispatch)=>{
-    return{
-        PostNews:()=>{
-            dispatch(addNewsactionCreator());
-        },
-        PostNewsText:(Text)=>{
-            dispatch(updateNewNewsCreator(Text));
-        }
-    }
-};*/
 
 const NewsContainer = connect(mapStateToProps,{ PostNews, PostNewsText})(News);
 

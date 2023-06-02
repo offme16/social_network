@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Navigate } from 'react-router-dom';
 import cla from './News.module.css';
 
 
@@ -24,7 +24,9 @@ const News = (props) =>{
         let Text = event.target.value;
         props.PostNewsText(Text);
     }
-
+    if(!props.isAuth){
+        return <Navigate to={'/login'}/>
+    }
     return(
         <div className={cla.container}>
             <div className={cla.textarea}>

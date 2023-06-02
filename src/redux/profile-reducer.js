@@ -84,4 +84,5 @@ export const raki = (text) => ({
   type: UPDATE_NEW_POST,
   newText: text,
 });
+
 export default profilereduce;

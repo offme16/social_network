@@ -7,18 +7,10 @@ let mapStateToProps = (state) =>{
         messages: state.MessagePage.MessageData,
         users: state.MessagePage.UsersData,
         Newmessage:state.MessagePage.Newmessage,
+        isAuth: state.auth.isAuth,
     }
 }
-/*let mapDispathToProps = (dispatch) =>{
-    return {
-        sendMessclick: () =>{
-            dispatch(sendMessCreator());
-        },
-        SendMes:(body)=>{
-            dispatch(updateNewMesBodyCreater(body));
-        }
-    }
-}*/
+
 
 const DialogsContainer = connect(mapStateToProps,{ sendMessclick,  SendMes })(Dialogs);
 

@@ -9,6 +9,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import NewsContainer from "./components/News/NewsContainer";
 import PeopleContainer from "./components/People/PeopleContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 const App = (props) => {
   return (
     <BrowserRouter>
@@ -18,6 +19,7 @@ const App = (props) => {
         <div className="app-wrapper__content">
           <Routes>
             <Route path="/dialods" element={<DialogsContainer />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<ProfileContainer />}>
               <Route path=":userId" element={<ProfileContainer />} />
             </Route>

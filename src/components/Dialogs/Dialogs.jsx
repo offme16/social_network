@@ -1,6 +1,7 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Navigate } from 'react-router-dom';
 import cla from './Dialogs.module.css';
 import React from 'react';
+
 
 const DialogItem = (props) =>{
     return  <NavLink to={'/dialods/'+props.id}> <div className={cla.dialog}> <img className={cla.ava__user} src={props.url__ava__user} alt='ph'/><div className={cla.user__name}>{props.name} </div> </div></NavLink>;
@@ -24,6 +25,10 @@ const Dialogs =(props) =>{
     let onSendMes = (event) =>{
         let body= event.target.value;
         props.SendMes(body);
+    }
+    if(props.isAuth === false)
+    {
+        return <Navigate to='/login'/>
     }
     return(
         <div className={cla.dialogs}>
