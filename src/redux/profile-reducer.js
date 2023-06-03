@@ -1,9 +1,9 @@
-import { UsersApi } from "../api/api";
+import { UsersApi, profileApi } from "../api/api";
 
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST = "UPDATE-NEW-POST-TEXT";
 const SET_USERS_PROFILE = "SET-USERS-PROFILE";
-
+const SET_STATUS = "SET-STATUS";
 let initialState = {
   PostData: [
     { id: 0, post: "text!!", countlike: "29" },
@@ -60,6 +60,11 @@ const profilereduce = (state = initialState, action) => {
         ...state,
         profile: action.profile,
       };
+    case SET_STATUS:
+      return {
+        ...state,
+        status: action.status,
+      };
     default:
       return state;
   }
@@ -69,10 +74,28 @@ export const SetUserProfile = (profile) => ({
   type: SET_USERS_PROFILE,
   profile,
 });
+export const Setstatus = (status) => ({
+  type: SET_STATUS,
+  status,
+});
 
 export const getUserProfile = (userId) => (dispatch) => {
   UsersApi.getProfile(userId).then((response) => {
     dispatch(SetUserProfile(response.data));
+  });
+};
+
+export const getUserStatus = (userId) => (dispatch) => {
+  profileApi.getStatus(userId).then((response) => {
+    dispatch(Setstatus(response.data));
+  });
+};
+
+export const updateUserStatus = (status) => (dispatch) => {
+  profileApi.updateStatus(status).then((response) => {
+    if (response.data.resaultCode === 0) {
+      dispatch(Setstatus(status));
+    }
   });
 };
 

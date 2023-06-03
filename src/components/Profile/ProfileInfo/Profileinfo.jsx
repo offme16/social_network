@@ -14,7 +14,7 @@ const Profileinfo = (props) => {
         <div className={cla.ANB}>
          <img className={cla.profimg} src="https://zastavok.net/main/raznoe/168070560590.jpg" alt='f'/>
          <div className={cla.avatar}>{avatar}</div>
-         <div className={cla.discr}>Name: {props.profile.fullName} <br/> Contacts: {git} <br/> Status: <ProfileStatus status={"еще немного осталось!"} /></div>
+         <div className={cla.discr}>Name: {props.profile.fullName} <br/> Contacts: {git} <br/> Status: <ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus} /></div>
         </div>
     );
 }
