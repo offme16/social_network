@@ -16,12 +16,15 @@ export const UsersApi = {
         return response.data;
       });
   },
+
   unfollow(id) {
     return instance.delete(`follow/${id}`);
   },
+
   follow(id) {
     return instance.post(`follow/${id}`);
   },
+
   getProfile(userId) {
     return instance.get(`profile/` + userId);
   },

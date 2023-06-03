@@ -11,11 +11,9 @@ import { compose } from 'redux';
 class PeopleContainer extends React.Component {
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize)
-
     }
     onPageChanged = (pageNumber) => {
         this.props.getUsers(pageNumber, this.props.pageSize)
-
     }
     render() {
         if(!this.props.isAuth){
@@ -35,8 +33,6 @@ class PeopleContainer extends React.Component {
     }
 };
 
-
-
 let mapStateToProps = (state) => {
     return {
         peoplelist: state.PeoplePage.PeopleData,
@@ -47,8 +43,6 @@ let mapStateToProps = (state) => {
         followingProgress: state.PeoplePage.followingProgress,
     }
 }
-
-
 
 export default compose(
     withAuthRedirect,

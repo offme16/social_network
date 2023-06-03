@@ -23,7 +23,6 @@ class ProfileContainer extends React.Component {
       this.props.getUserProfile(userId)
     }
   render() {
-   
     return ( 
     <Profile { ...this.props}  />
     )
@@ -37,5 +36,5 @@ class ProfileContainer extends React.Component {
 export default compose(
   connect(mapStateToProps, { getUserProfile }),
   withRouter,
-  withAuthRedirect
+ // withAuthRedirect
 )(ProfileContainer)
