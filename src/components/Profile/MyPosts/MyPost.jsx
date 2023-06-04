@@ -3,33 +3,22 @@ import Post from './Post/Post';
 import './Post/Post.module.css';
 import React from 'react';
 import Friends from '../Friends/Friends';
+import { Field, reduxForm } from 'redux-form';
 
 
 
 const MyPost = (props) =>{
 
-  let newpostEl = React.createRef();
-
-  let onaddPost = () =>{
-     props.addPost()
+  let onaddPost = (values) =>{
+     props.addPost(values.AddPost)
   };
-
-  let onPostChange= () => {
-    let text = newpostEl.current.value;
-     props.raki(text);
-  };
-  
+ 
      let PostF = props.post.map(p => <Post message={p.post} countlike={p.countlike}/>)  
 
     return(
       <div className={cla.flex__column} >
         <div className={cla.MYp}> My post
-         <div className={cla.New__Post}>
-          <textarea onChange={onPostChange} value={props.newPostText} ref={newpostEl} placeholder='У вас есть что-то новое?'/>
-          <div className={cla.forbut}>
-          <button onClick={onaddPost}>Publish</button>
-          </div>
-         </div>
+          <PostReduxForm  onSubmit={onaddPost}/>
           <div className={cla.posts}>
             {PostF}
           </div>
@@ -40,4 +29,22 @@ const MyPost = (props) =>{
       </div>
     );
 }
+
+
+
+const PostForm = (props) =>{
+  return(
+    <form onSubmit={props.handleSubmit}>
+  <div className={cla.New__Post}>
+    <Field component="textarea" name="AddPost" placeholder="У вас есть что-то новое?" />
+     <div className={cla.forbut}>
+     <button>Publish</button>
+  </div>
+ </div>
+    </form>
+)}
+const PostReduxForm = reduxForm({
+  form: "AddPostProfile"
+})(PostForm)
+
 export default MyPost;

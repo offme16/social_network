@@ -1,4 +1,3 @@
-const UPDATE_NEW_MESS_TEXT = "UPDATE-NEW-MESS-TEXT";
 const SEND_MESS = "SEND_MESS";
 
 let initialState = {
@@ -32,34 +31,23 @@ let initialState = {
     { id: 0, mes: "HI?WHO?" },
     { id: 1, mes: "ohhh,wtf?!" },
   ],
-  Newmessage: "",
 };
 
 const messagereduce = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_NEW_MESS_TEXT:
-      return {
-        ...state,
-        Newmessage: action.body,
-      };
-
     case SEND_MESS:
-      let body = state.Newmessage;
+      let body = action.Newmessage;
       return {
         ...state,
-        Newmessage: "",
         MessageData: [...state.MessageData, { id: 2, mes: body }],
       };
     default:
       return state;
   }
 };
-export const sendMessclick = () => ({
+export const sendMessclick = (Newmessage) => ({
   type: SEND_MESS,
+  Newmessage,
 });
 
-export const SendMes = (body) => ({
-  type: UPDATE_NEW_MESS_TEXT,
-  body: body,
-});
 export default messagereduce;

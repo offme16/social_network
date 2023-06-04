@@ -1,9 +1,9 @@
 import { UsersApi, profileApi } from "../api/api";
 
 const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST = "UPDATE-NEW-POST-TEXT";
 const SET_USERS_PROFILE = "SET-USERS-PROFILE";
 const SET_STATUS = "SET-STATUS";
+
 let initialState = {
   PostData: [
     { id: 0, post: "text!!", countlike: "29" },
@@ -11,7 +11,6 @@ let initialState = {
     { id: 2, post: "Pzfa", countlike: "30" },
     { id: 3, post: "yep", countlike: "100" },
   ],
-  newPostText: [""],
   FriendsData: [
     {
       id: 0,
@@ -41,7 +40,7 @@ const profilereduce = (state = initialState, action) => {
     case ADD_POST: {
       let newPost = {
         id: 5,
-        post: state.newPostText,
+        post: action.AddPost,
         countlike: 0,
       };
       return {
@@ -50,11 +49,6 @@ const profilereduce = (state = initialState, action) => {
         newPostText: "",
       };
     }
-    case UPDATE_NEW_POST:
-      return {
-        ...state,
-        newPostText: action.newText,
-      };
     case SET_USERS_PROFILE:
       return {
         ...state,
@@ -99,13 +93,9 @@ export const updateUserStatus = (status) => (dispatch) => {
   });
 };
 
-export const addPost = () => ({
+export const addPost = (AddPost) => ({
   type: ADD_POST,
-});
-
-export const raki = (text) => ({
-  type: UPDATE_NEW_POST,
-  newText: text,
+  AddPost,
 });
 
 export default profilereduce;
