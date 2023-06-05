@@ -4,6 +4,8 @@ import './Post/Post.module.css';
 import React from 'react';
 import Friends from '../Friends/Friends';
 import { Field, reduxForm } from 'redux-form';
+import { maxLengthCreater, requiredField } from '../../../utilits/vlidators';
+import { Textarea } from '../../common/FormsControls';
 
 
 
@@ -36,7 +38,7 @@ const PostForm = (props) =>{
   return(
     <form onSubmit={props.handleSubmit}>
   <div className={cla.New__Post}>
-    <Field component="textarea" name="AddPost" placeholder="У вас есть что-то новое?" />
+    <Field component={Textarea} name="AddPost" placeholder="У вас есть что-то новое?" validate={[requiredField, maxLengthCreater(10)]} />
      <div className={cla.forbut}>
      <button>Publish</button>
   </div>

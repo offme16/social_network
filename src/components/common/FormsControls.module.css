@@ -1,0 +1,6 @@
+.error{
+  border: solid 2px red
+}
+.error__span{
+  color: red
+}

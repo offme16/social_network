@@ -1,5 +1,5 @@
 import { Field, reduxForm } from "redux-form"
-
+import cla from "./Login.module.css"
 const LoginForm = (props) =>{
     return  <form onSubmit={props.handleSubmit}>
         <div>
@@ -28,7 +28,7 @@ const Login = (props) =>{
     const onSubmit = (formData) => {
         console.log(formData)
     }
-    return <div>
+    return <div className={cla.container}>
         <h1>Login</h1> 
         <LoginReduxForm onSubmit={onSubmit}/>
     </div>
