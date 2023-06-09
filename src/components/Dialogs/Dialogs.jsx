@@ -2,7 +2,8 @@ import { NavLink, Navigate } from 'react-router-dom';
 import cla from './Dialogs.module.css';
 import React from 'react';
 import { Field , reduxForm} from 'redux-form';
-
+import { Textarea } from '../common/FormsControls';
+import { maxLengthCreater, requiredField } from '../../utilits/vlidators';
 
 const DialogItem = (props) =>{
     return  <NavLink to={'/dialods/'+props.id}> <div className={cla.dialog}> <img className={cla.ava__user} src={props.url__ava__user} alt='ph'/><div className={cla.user__name}>{props.name} </div> </div></NavLink>;
@@ -47,12 +48,12 @@ const Dialogs =(props) =>{
     );
 }
 
-
-const addMessageForm = (props) =>{
+const maxLength150 = maxLengthCreater(150)
+const addMessageForm = (props) => {
     return(
         <form onSubmit={props.handleSubmit}>
             <div className={cla.fortextbut}>
-                    <Field component="textarea" name="Newmessage" placeholder="Write a message.."/>
+                    <Field component={Textarea} name="Newmessage" placeholder="Write a message.." validate={[requiredField, maxLength150]}/>
                     <button >Send</button>
             </div>
         </form>
