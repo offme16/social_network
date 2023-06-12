@@ -2,10 +2,8 @@ import cla from './People.module.css';
 import React from 'react';
 import userPgoto from '../../asses/images/usersimg.jpg';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
-import { UsersApi } from '../../api/api';
+
 let People = (props) => {
-    debugger
     let pageCount = Math.ceil(props.totalusersCount / props.pageSize);
     let pages = [];
     for (let i = 1; i <= pageCount; i++) {
