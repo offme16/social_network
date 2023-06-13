@@ -13,5 +13,5 @@ let mapStateToProps = (state) =>{
 }
 
 export default compose(
-    connect(mapStateToProps,{ sendMessclick}), //withAuthRedirect
+    connect(mapStateToProps,{ sendMessclick}), withAuthRedirect
     )(Dialogs);
