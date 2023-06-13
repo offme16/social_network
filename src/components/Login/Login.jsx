@@ -8,7 +8,7 @@ import { Navigate } from "react-router-dom"
 const LoginForm = (props) =>{
     return  <form onSubmit={props.handleSubmit}>
         <div>
-            <Field placeholder={"Email"} name={"email"} component={Input} validate={[requiredField]}/>
+            <Field placeholder={"Email"} name={"email"} component={Input} validate={[requiredField]} />
         </div>
         <div>
             <Field placeholder="Password"  name={"password"} component={Input} type={"password"} validate={[requiredField]}/>
@@ -16,6 +16,8 @@ const LoginForm = (props) =>{
         <div>
             <Field type={"checkbox"} name={"remember"} component={"input"}/> Remember me
         </div>
+        {props.error && <div className={cla.sumerror}>{props.error}</div>
+        }
         <div>
             <button>Login</button>
         </div>

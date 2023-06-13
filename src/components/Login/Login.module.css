@@ -3,3 +3,7 @@
     flex-direction: column;
     align-items: center;
 }
+.sumerror{
+        border: 1px solid rebeccapurple;
+        padding: 5px;
+}
