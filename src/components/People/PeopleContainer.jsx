@@ -6,6 +6,7 @@ import Preloader from '../common/Preloader'
 import { Navigate } from 'react-router-dom';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
+import { getPeople, getCurrentPage, getFetching, getFollowingProgress, getPageSize, getTotalCount } from '../../redux/users-reselect';
 
 
 class PeopleContainer extends React.Component {
@@ -35,12 +36,12 @@ class PeopleContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        peoplelist: state.PeoplePage.PeopleData,
-        pageSize: state.PeoplePage.pageSize,
-        totalusersCount: state.PeoplePage.totalusersCount,
-        currentPage: state.PeoplePage.currentPage,
-        isFetching: state.PeoplePage.isFetching,
-        followingProgress: state.PeoplePage.followingProgress,
+        peoplelist: getPeople(state),
+        pageSize: getPageSize(state),
+        totalusersCount: getTotalCount(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getFetching(state),
+        followingProgress: getFollowingProgress(state),
     }
 }
 
