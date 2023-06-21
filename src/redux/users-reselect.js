@@ -1,6 +1,11 @@
-export const getPeople = (state) => {
+import { createSelector } from "reselect";
+
+export const getPeopleSelector = (state) => {
   return state.PeoplePage.PeopleData;
 };
+export const getPeople = createSelector(getPeopleSelector, (PeopleData) => {
+  return PeopleData.filter((u) => true);
+});
 export const getPageSize = (state) => {
   return state.PeoplePage.pageSize;
 };

@@ -1,6 +1,6 @@
 import cla from './Profileinfo.module.css';
 import Preloader from '../../common/Preloader'
-import ProfileStatus from './ProfileStatus';
+import ProfileStatusHook from './ProfileStatusHook';
 
 const Profileinfo = (props) => {
     if(!props.profile){
@@ -14,7 +14,7 @@ const Profileinfo = (props) => {
         <div className={cla.ANB}>
          <img className={cla.profimg} src="https://zastavok.net/main/raznoe/168070560590.jpg" alt='f'/>
          <div className={cla.avatar}>{avatar}</div>
-         <div className={cla.discr}>Name: {props.profile.fullName} <br/> Contacts: {git} <br/> Status: <ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus} /></div>
+         <div className={cla.discr}>Name: {props.profile.fullName} <br/> Contacts: {git} <br/> Status: <ProfileStatusHook status={props.status} updateUserStatus={props.updateUserStatus} /></div>
         </div>
     );
 }
