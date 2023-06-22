@@ -1,10 +1,10 @@
 .container{
     padding: 20px 10px 30px;
-    max-width: 550px;
+    max-width: 650px;
 }
 .block{
     width: 100%;
-    height: 80px;
+    height: 90px;
     border: solid 1px var(--color);
     display:flex;
 }
@@ -21,5 +21,21 @@
     padding: 5px 5px;
 }
 .selectedPage{
-    text-decoration: underline;
+    background-color: #ffffff60;
+}
+button{
+    cursor: pointer;
+}
+.butnum{
+    margin-top: 10PX;
+    display: flex;
+    justify-content: center;
+}
+.butnum span{
+    border: solid 1px var(--color);
+    padding: 2px 5px;
+    cursor: pointer;
+}
+.butnum span:hover{
+    background-color: #ffffff60;
 }

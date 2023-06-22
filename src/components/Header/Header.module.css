@@ -20,6 +20,8 @@
   font-weight: 900;
 }
 .login__block{
+  padding-top: 15px;
   float: right;
   color: aqua;
+  padding-right: 20px;
 }

@@ -1,5 +1,7 @@
 .error{
-  border: solid 2px red
+  border: solid 1px red;
+  border-radius: var(--radius);
+  max-height: 70px;
 }
 .error__span{
   color: red

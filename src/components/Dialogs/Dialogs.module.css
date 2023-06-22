@@ -48,8 +48,11 @@
     display: flex;
     justify-content: center;
     padding: 8px 10px 12px 6px;
-    gap:5px
+    align-items: center;
 }
 .sendmessages{
     margin-top: 20px;
+}
+.fortextbut button{
+    padding: 5px 9px;
 }

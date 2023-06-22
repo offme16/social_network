@@ -38,7 +38,7 @@ const PostForm = (props) =>{
   return(
     <form onSubmit={props.handleSubmit}>
   <div className={cla.New__Post}>
-    <Field component={Textarea} name="AddPost" placeholder="У вас есть что-то новое?" validate={[requiredField, maxLengthCreater(10)]} />
+    <Field component={Textarea} name="AddPost" placeholder="У вас есть что-то новое?" validate={[requiredField, maxLengthCreater(100)]} />
      <div className={cla.forbut}>
      <button>Publish</button>
   </div>

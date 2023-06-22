@@ -14,7 +14,7 @@ const NewsItem = (props) => {
 
 const News = (props) =>{
 
-    let NewsList = props.newsdata.map(n => <NewsItem avauser={n.avauser} username={n.username} newstext={n.newstext} newsimg={n.newsimg}/>)
+    let NewsList = props.newsdata.map(n => <NewsItem  avauser={n.avauser} username={n.username} newstext={n.newstext} newsimg={n.newsimg}/>)
 
     let onPostNews = () =>{
         props.PostNews();
@@ -33,7 +33,7 @@ const News = (props) =>{
                 <textarea placeholder='What is new?' value={props.NewNewsText} onChange={onPostNewsText}></textarea>
                <div className={cla.buttonnews}> <button onClick={onPostNews}>Post</button></div>
             </div>
-        <div >
+        <div className={cla.Post}>
             {NewsList}
         </div>
         </div>

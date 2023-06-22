@@ -11,7 +11,7 @@ let initialState = {
   PeopleData: [],
   pageSize: 5,
   totalusersCount: 30,
-  Page: 1,
+  Page: 2,
   isFetching: true,
   followingProgress: [],
 };

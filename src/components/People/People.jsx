@@ -10,14 +10,7 @@ let People = (props) => {
         pages.push(i);
     }
     return <div className={cla.container}>
-        <div>
-            {pages.map(p => {
-                return <span onClick={(e) => props.onPageChanged(p)} className={props.currentPage === p && cla.selectedPage}>{p}</span>
-
-            })}
-        </div>
         {
-
             props.peoplelist.map(u => <div className={cla.block} key={u.id}>
 
                 <div className={cla.ava__desp}>
@@ -27,7 +20,6 @@ let People = (props) => {
                         </div>  </NavLink>
                     <div className={cla.name__status}>
                         <div>{u.name}</div>
-                        <span>{"u.location.sity"} , {"u.location.country"}</span>
                     </div>
                 </div>
                 <div>
@@ -38,13 +30,13 @@ let People = (props) => {
                                 props.follow(u.id);}}>FOLLOW</button>}</div>
                 </div>
             </div>)
+            
         }
-        <div>
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
+         <div className={cla.butnum}>
+            {pages.map(p => {
+                return <span onClick={(e) => props.onPageChanged(p)} className={props.currentPage === p && cla.selectedPage}>{p}</span>
+
+            })}
         </div>
     </div>
 }
